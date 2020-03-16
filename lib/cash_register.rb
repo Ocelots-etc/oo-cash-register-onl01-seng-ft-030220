@@ -8,7 +8,16 @@ class CashRegister
   end
 
   def add_item(item, price, quantity = 1)
-    @items << item
+       @items << item
+         if quantity > 1
+            counter = 0
+           while counter < quantity
+             @items << item
+             counter += 1
+           end
+         else
+        @items << item
+    end
     self.last_item = item
     self.price = price
     self.subtotal = quantity * price
